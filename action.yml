@@ -17,5 +17,6 @@ runs:
             dash-version: 0.2.1
         - run: dash_compiler build -c ${{ inputs.compiler-config }}
           shell: bash
-        - run:  zip -qq -r ${{ inputs.project-name }}.${{ inputs.package-type }} "./builds/dist"
+        - run:  zip -qq -r ${{ inputs.project-name }}.${{ inputs.package-type }} .
           shell: bash
+          working-directory: "./builds/dist"
