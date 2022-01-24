@@ -12,7 +12,7 @@ runs:
     using: 'composite'
     steps:
         - uses: montudor/action-zip@v1
-        - uses: bridge-core/setup-dash
+        - uses: bridge-core/setup-dash@main
           with:
             dash-version: 0.2.1
         - run: dash_compiler build -c ${{ inputs.compiler-config }}
