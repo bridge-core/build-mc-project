@@ -13,6 +13,8 @@ runs:
     steps:
         - uses: montudor/action-zip@v1
         - uses: bridge-core/setup-dash
+          with:
+            dash-version: 0.2.1
         - run: dash_compiler build -c ${{ inputs.compiler-config }}
           shell: bash
         - run:  zip -qq -r ${{ inputs.project-name }}.${{ inputs.package-type }} "./builds/dist"
