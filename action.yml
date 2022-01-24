@@ -1,0 +1,18 @@
+name: 'build-mc-project'
+description: 'Build a Minecraft project using Dash'
+inputs:
+    project-name:
+        description: The name of your project
+        default: release
+    package-type:
+        default: zip
+    compiler-config:
+        description: The compiler config that contains the packaging script
+runs:
+    using: 'composite'
+    steps:
+        - uses: montudor/action-zip@v1
+        - uses: bridge-core/setup-dash
+        - run: dash_compiler build -c ${{ inputs.compiler-config }}
+          shell: bash
+        - run:  zip -qq -r ${{ inputs.project-name }}.${{ inputs.package-type }} "./builds/dist"
