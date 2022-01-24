@@ -18,3 +18,4 @@ runs:
         - run: dash_compiler build -c ${{ inputs.compiler-config }}
           shell: bash
         - run:  zip -qq -r ${{ inputs.project-name }}.${{ inputs.package-type }} "./builds/dist"
+          shell: bash
